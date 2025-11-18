@@ -1,0 +1,155 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentina Dagum</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="page">
+<header class="header">
+    <nav class="nav container">
+        <h2 class="nav__logo">Valentina Dagum</h2>
+
+        <button class="nav__toggle" aria-label="Abrir menú" aria-expanded="false">
+            <span class="nav__toggle-line"></span>
+            <span class="nav__toggle-line"></span>
+            <span class="nav__toggle-line"></span>
+        </button>
+
+        <ul class="nav__list">
+            <li class="nav__item"><a href="#sobre-mi" class="nav__link">Sobre mí</a></li>
+            <li class="nav__item"><a href="#servicios" class="nav__link">Servicios</a></li>
+            <li class="nav__item"><a href="#resenas" class="nav__link">Reseñas</a></li>
+            <li class="nav__item"><a href="#contacto" class="nav__link">Contáctanos</a></li>
+        </ul>
+    </nav>
+</header>
+
+
+    <main class="main">
+        <!-- HERO / SOBRE MI -->
+        <section id="sobre-mi" class="hero section">
+            <div class="container hero__content">
+                <div class="hero__text">
+                    <h1 class="hero__title">Valentina Dagum</h1>
+                    <p class="hero__description">
+                        Hola, soy <strong>Valentina Dagum</strong>. Soy Traductora pública nacional de inglés, graduada de la Universidad Nacional de Córdoba y con más de ocho años de experiencia en el sector. Me especializo en textos jurídicos, médicos, de salud y marketing.
+                    </p>
+                    <p>
+                        Trabajo con un enfoque orientado al detalle, la coherencia y la confidencialidad, y utilizo herramientas profesionales de traducción para garantizar consistencia y calidad en cada proyecto.
+                    </p>
+                </div>
+                <div class="hero__image-wrapper">
+                    <img class="hero__image" src="./img/aboutme.png" alt="Foto de Valentina Dagum">
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICIOS -->
+        <section id="servicios" class="services section">
+            <div class="container">
+                <h2 class="section__title">Servicios</h2>
+                <div class="services__grid">
+                    <article class="service-card">
+                        <h3 class="service-card__title">Traducciones públicas certificadas</h3>
+                        <p class="service-card__description">Tus documentos necesitan traducciones precisas y, en muchos
+                            casos, certificadas y legalizadas. </p>
+                        <p class="service-card__description">Partidas, contratos, actas, certificados, planes de
+                            estudio, analíticos, diplomas, y más</p>
+                    </article>
+                    <article class="service-card">
+                        <h3 class="service-card__title">Traducciones médicas</h3>
+                        <p class="service-card__description">Cada palabra es clave en el ámbito de la salud: garantizo
+                            traducciones fieles, confidenciales y con terminología médica precisa.</p>
+                        <p class="service-card__description">Historias clínicas, informes médicos, guías y folletos de salud, formularios de consentimiento informado. </p>
+                    </article>
+                    <article class="service-card">
+                        <h3 class="service-card__title">Traducciones de marketing y empresariales</h3>
+                        <p class="service-card__description">Transmito el mensaje y el tono de tu marca con naturalidad y coherencia cultural, para conectar eficazmente con tu público meta.</p>
+                        <p class="service-card__description">Sitios web, campañas publicitarias, presentaciones corporativas, catálogos, newsletters y contenido digital</p>
+                    </article>
+                    <article class="service-card">
+                        <h3 class="service-card__title">Corrección y revisión de textos</h3>
+                        <p class="service-card__description">Reviso y optimizo tus textos para asegurar una comunicación clara, profesional y sin errores.</p>
+                        <p class="service-card__description">Ortografía, gramática, terminología, estilo y coherencia.</p>
+                    </article>
+                    <article class="service-card">
+                        <h3 class="service-card__title">Postedición</h3>
+                        <p class="service-card__description">Me ocupo de revisar, ajustar, y mejorar estos textos para asegurar precisión, fluidez, coherencia terminológica y adecuación al propósito comunicativo.</p>
+                        <p class="service-card__description">Edición y corrección de textos generados por herramientas de traducción automática.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- RESEÑAS -->
+        <section id="resenas" class="reviews section">
+            <div class="container">
+                <h2 class="section__title">Reseñas</h2>
+                <div class="reviews__grid">
+                    <article class="review-card">
+                        <p class="review-card__text">
+                            "Valentina hizo un trabajo increíble. Muy profesional y atenta a los detalles."
+                        </p>
+                        <span class="review-card__author">- Cliente Satisfecho</span>
+                    </article>
+                    <article class="review-card">
+                        <p class="review-card__text">
+                            "Recomiendo encarecidamente sus servicios. Superó todas mis expectativas."
+                        </p>
+                        <span class="review-card__author">- Otro Cliente Feliz</span>
+                    </article>
+                    <article class="review-card">
+                        <p class="review-card__text">
+                            "Excelente experiencia de principio a fin. Valentina es la mejor en lo que hace."
+                        </p>
+                        <span class="review-card__author">- Cliente Contento</span>
+                    </article>
+                    <article class="review-card">
+                        <p class="review-card__text">
+                            "Su dedicación y profesionalismo son incomparables. Muy recomendable."
+                        </p>
+                        <span class="review-card__author">- Cliente Satisfecho</span>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACTO -->
+        <section id="contacto" class="contact section">
+            <div class="container">
+                <h2 class="section__title">Contáctanos</h2>
+                <form class="form" action="#" method="POST">
+                    <div class="form__group">
+                        <label class="form__label" for="name">Nombre:</label>
+                        <input class="form__input" type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form__group">
+                        <label class="form__label" for="email">Correo Electrónico:</label>
+                        <input class="form__input" type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form__group">
+                        <label class="form__label" for="message">Mensaje:</label>
+                        <textarea class="form__textarea" id="message" name="message" required></textarea>
+                    </div>
+                    <button class="button button--primary" type="submit">Enviar</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer__content">
+            <p class="footer__text">&copy; 2024 Valentina Dagum. Todos los derechos reservados.</p>
+        </div>  
+    </footer>
+
+    <script src="menu.js"></script>
+</body>
+
+</html>
