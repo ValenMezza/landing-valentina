@@ -29,7 +29,7 @@ app.post('/contacto', async (req, res) => {
       from: `"Landing Valentina" <${process.env.MAIL_USER}>`,
       to: process.env.MAIL_TO,                  // te llega a tus casillas
       replyTo: email,                           // si respondés, le responde al cliente
-      subject: 'Nueva consulta desde la landing',
+      subject: 'Landing Valentina - Nuevo mensaje de contacto',
       text: `
 Nombre: ${nombre}
 Email: ${email}
