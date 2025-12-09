@@ -1,3 +1,4 @@
+// Cargar variables de entorno desde .env
 require('dotenv').config();
 
 const express = require('express');
@@ -7,28 +8,52 @@ const nodemailer = require('nodemailer');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Archivos estáticos (asegurate que index.html esté en /public)
+// =======================
+//   CONFIG BÁSICA
+// =======================
+
+// Servir archivos estáticos (index.html, styles.css, etc.)
+// Asegurate de que tu index.html esté en:  /public/index.html
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Para leer datos de formularios (POST x-www-form-urlencoded)
 app.use(express.urlencoded({ extended: true }));
 
-// Transporter con Gmail
+// =======================
+//   TRANSPORTER GMAIL
+// =======================
+
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: process.env.MAIL_USER,
-    pass: process.env.MAIL_PASS,
+    user: process.env.MAIL_USER, // ej: mezza12354@gmail.com
+    pass: process.env.MAIL_PASS, // contraseña de aplicación de Gmail
   },
 });
 
-// Ruta del formulario
+// (Opcional, pero útil) Log rápido para verificar env cargadas
+console.log('MAIL_USER:', process.env.MAIL_USER);
+console.log('MAIL_TO:', process.env.MAIL_TO);
+
+// =======================
+//   RUTAS
+// =======================
+
+// Ruta raíz (por si Render o alguien pega / directamente)
+// Aunque con express.static ya debería servir index.html, esto asegura:
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
+// Ruta del formulario de contacto
 app.post('/contacto', async (req, res) => {
   const { nombre, email, mensaje } = req.body;
 
   try {
     await transporter.sendMail({
       from: `"Landing Valentina" <${process.env.MAIL_USER}>`,
-      to: process.env.MAIL_TO,                  // te llega a tus casillas
-      replyTo: email,                           // si respondés, le responde al cliente
+      to: process.env.MAIL_TO,   // una o varias casillas tuyas
+      replyTo: email,            // si respondés, le contestás al cliente
       subject: 'Landing Valentina - Nuevo mensaje de contacto',
       text: `
 Nombre: ${nombre}
@@ -39,7 +64,7 @@ ${mensaje}
       `,
     });
 
-    // Pantalla de éxito
+    // Pantalla de éxito con redirección a la home
     res.send(`
       <html>
         <head>
@@ -54,6 +79,7 @@ ${mensaje}
               align-items: center;
               justify-content: center;
               height: 100vh;
+              margin: 0;
             }
             .card {
               background: #fff;
@@ -94,7 +120,28 @@ ${mensaje}
   }
 });
 
-// Levantar servidor
+// (Opcional) Ruta de test para probar el mail sin usar el form
+// Ir a: http://localhost:3000/test-email
+app.get('/test-email', async (req, res) => {
+  try {
+    await transporter.sendMail({
+      from: `"Test Landing" <${process.env.MAIL_USER}>`,
+      to: process.env.MAIL_TO,
+      subject: 'Test de correo desde Nodemailer',
+      text: 'Hola, este es un test de tu landing de Valentina Dagum.',
+    });
+
+    res.send('Test enviado, revisá tu casilla 🙂');
+  } catch (error) {
+    console.error('Error en /test-email:', error);
+    res.status(500).send('Error enviando el test, mirá la consola.');
+  }
+});
+
+// =======================
+//   LEVANTAR SERVIDOR
+// =======================
+
 app.listen(PORT, () => {
   console.log(`Servidor escuchando en http://localhost:${PORT}`);
 });
